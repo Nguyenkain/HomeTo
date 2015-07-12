@@ -1,0 +1,28 @@
+.dataTable td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+.dataTable thead > tr > th:last-child {
+    min-width: 150px !important
+}
+
+.dataTable tbody tr > td:last-child a {
+    margin: 0 3px;
+}
+
+.img-upload-container {
+    background: url("../img/input-image.jpg") no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 5px;
+}
+
+.img-upload-container input {
+    filter: alpha(opacity=0);
+    opacity: 0;
+    padding: 0;
+    width: 100%;
+    height: 7vw;
+    cursor: pointer;
+}
