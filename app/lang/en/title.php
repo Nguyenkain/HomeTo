@@ -6,6 +6,7 @@ return array(
 	'address'                => 'Địa chỉ',
 	'province'               => 'Quận, Huyện',
 	'submit'                 => 'Gửi',
+	'create'                 => 'Tạo mới',
 	'cancel'                 => 'Hủy',
 	'management_company'     => 'Đơn vị quản lý',
 	'management_fee'         => 'Phí quản lý (VND)',
@@ -54,5 +55,6 @@ return array(
 	'contact_info'           => 'Thông tin liên hệ',
 	'username'               => 'Tên người đăng',
 	'email'                  => 'Email',
-	'phone'                  => 'Số điện thoại',
+	'phone'                  => 'Số điện thoại
+	',
 );

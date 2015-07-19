@@ -14,7 +14,10 @@ class PagesController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Redirect::to( 'project' );
+		// Get all project
+		$projects = ListProject::lists( 'name', 'ID' );
+
+		return View::make( 'pages.index', compact( 'projects' ) );
 	}
 
 	/**
@@ -135,7 +138,7 @@ class PagesController extends \BaseController {
 			return Redirect::back()->withErrors( $error )->withInput();
 		}
 
-		return Redirect::to( 'project' )->with( 'success', "Thêm mới thành công" );
+		return Redirect::to( '/' )->with( 'success', "Thêm mới thành công" );
 	}
 
 	/**

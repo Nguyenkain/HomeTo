@@ -127,21 +127,24 @@
     <!-- end TOP NAVIGATION -->
 
     <!-- begin SIDE NAVIGATION -->
-    <nav class="navbar-side" role="navigation">
+    <nav class="navbar-side collapsed" role="navigation">
         <div class="navbar-collapse sidebar-collapse collapse">
             <ul id="side" class="nav navbar-nav side-nav">
                 <!-- begin SIDE NAV USER PANEL -->
                 <li class="side-user hidden-xs">
-                    <img class="img-circle" src="{{isset(Auth::user()->image) ? asset(Auth::user()->image) : asset('assets/img/profile-pic.jpg')}}" alt="">
+                    <img class="img-circle"
+                         src="{{isset(Auth::user()->image) ? asset(Auth::user()->image) : asset('assets/img/profile-pic.jpg')}}"
+                         alt="">
 
                     <p class="welcome">
                         <i class="fa fa-key"></i> {{Lang::get("title.log_in_as")}}
                     </p>
 
                     <p class="name tooltip-sidebar-logout">
-                        {{ isset(Auth::user()->username) ? Auth::user()->username : Lang::get('title.user') }} <a style="color: inherit"
-                                                        href="{{ URL::to('admin/logout') }}"
-                                                        data-placement="top" title="?????"><i
+                        {{ isset(Auth::user()->username) ? Auth::user()->username : Lang::get('title.user') }} <a
+                                style="color: inherit"
+                                href="{{ URL::to('admin/logout') }}"
+                                data-placement="top" title="?????"><i
                                     class="fa fa-sign-out"></i></a>
                     </p>
 
@@ -155,20 +158,24 @@
                     </a>
                 </li>
                 <!-- end DASHBOARD LINK -->
-                <!-- begin Project LINK -->
-                <li>
-                    <a class="{{Active::controller('Pages');}}"
-                       href="{{ URL::to('project') }}">
-                        <i class="fa fa-star"></i> Dự án
-                    </a>
-                </li>
-                <!-- end Project LINK -->
                 <!-- begin Apartment LINK -->
-                <li>
-                    <a class="{{Active::controller('Apartment');}}"
-                       href="{{ URL::to('apartment') }}">
-                        <i class="fa fa-location-arrow"></i> Căn hộ
+                <li class="panel">
+                    <a href="{{ URL::to('apartment') }}" data-parent="#side" data-toggle="collapse"
+                       class="accordion-toggle {{Active::controller('Apartment');}}"
+                       data-target="#project">
+                        <i class="fa fa-location-arrow"></i> Căn hộ <i
+                                class="fa fa-caret-down"></i>
                     </a>
+                    <ul class="collapse nav {{Active::controllers(array('Apartment', 'Pages'), 'in')}}" id="project">
+                        <!-- begin Project LINK -->
+                        <li>
+                            <a class="{{Active::controller('Pages');}}"
+                               href="{{ URL::to('project') }}">
+                                <i class="fa fa-star"></i> Dự án
+                            </a>
+                        </li>
+                        <!-- end Project LINK -->
+                    </ul>
                 </li>
                 <!-- end Apartment LINK -->
             </ul>
@@ -180,7 +187,7 @@
     <!-- end SIDE NAVIGATION -->
 
     <!-- begin MAIN PAGE CONTENT -->
-    <div id="page-wrapper">
+    <div id="page-wrapper" class="collapsed">
 
         <!-- Notifications -->
         @include('notifications')

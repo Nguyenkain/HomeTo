@@ -28,6 +28,10 @@ class ApartmentController extends \BaseController {
 		// Get all project
 		$projects = ListProject::lists( 'name', 'ID' );
 
+		//Get project
+		$project_id = Input::get( 'project' );
+		$apartment->project = $project_id;
+
 		// Get all furniture
 		$furnitures = Furniture::lists( 'name', 'ID' );
 
@@ -35,7 +39,7 @@ class ApartmentController extends \BaseController {
 		$directions = Direction::lists( 'name', 'ID' );
 
 		// Get all floor material
-		$floor_materials = FloorMaterial::lists('name', 'ID');
+		$floor_materials = FloorMaterial::lists( 'name', 'ID' );
 
 		// Clear Session
 		for ( $i = - 2; $i < 8; $i ++ ) {
@@ -44,7 +48,7 @@ class ApartmentController extends \BaseController {
 			}
 		}
 
-		return View::make( 'pages.apartment', compact( 'apartment', 'district', 'province', 'projects', 'furnitures', 'directions', 'floor_materials' ) );
+		return View::make( 'pages.apartment', compact( 'apartment', 'district', 'province', 'projects', 'project_id', 'furnitures', 'directions', 'floor_materials' ) );
 	}
 
 
@@ -71,7 +75,7 @@ class ApartmentController extends \BaseController {
 					$image_arr = Session::get( "image[{$i}]" );
 					foreach ( $image_arr as $image ) {
 						$image_apartment              = new ImageApartment();
-						$image_apartment->apartment     = $apartment->ID;
+						$image_apartment->apartment   = $apartment->ID;
 						$image_apartment->type        = $i + 2;
 						$image_apartment->image       = asset( sprintf( 'uploads/apartment_%s/%s', $this->_getTypeName( $i ), $image['image'] ) );
 						$image_apartment->description = $image['caption'];
@@ -86,7 +90,7 @@ class ApartmentController extends \BaseController {
 			return Redirect::back()->withErrors( $error )->withInput();
 		}
 
-		return Redirect::to('apartment')->with( 'success', "Thêm mới thành công" );
+		return Redirect::to( 'apartment' )->with( 'success', "Thêm mới thành công" );
 	}
 
 	/**

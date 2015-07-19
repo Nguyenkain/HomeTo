@@ -36,9 +36,10 @@
                 <div class="form-group {{$errors->has('project') ? "has-error" : false}}">
                     {{Form::label('project', Lang::get('title.project').' *', array('class' => 'col-sm-2 control-label'));}}
                     <div class="col-sm-10">
-                        {{Form::select('project', $projects ,null, array('class' => 'form-control'))}}
+                        {{Form::select('project', $projects ,null, array('class' => 'form-control', 'disabled' => true))}}
                         {{ $errors->first('project', "<span for='project' class='help-block'><i class='fa fa-warning'></i> :message</span>")}}
                     </div>
+                    {{Form::hidden('project')}}
                 </div>
 
                 <div class="form-group {{$errors->has('price_square') ? "has-error" : false}}">

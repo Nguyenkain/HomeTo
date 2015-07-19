@@ -79,11 +79,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     /**
      * Fillable Fields
-     * 
+     *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password'
+        'username', 'email', 'password_hash'
     ];
 
     /**
@@ -91,7 +91,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      *
      * @var array
      */
-    protected $hidden = array('password', 'remember_token');
+    protected $hidden = array('password_hash', 'remember_token');
 
     /**
      * Hash password on set
@@ -99,7 +99,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
      */
     public function setPasswordAttribute($value)
     {
-        $this->attributes['password'] = Hash::make($value);
+        $this->attributes['password_hash'] = Hash::make($value);
     }
 
 }

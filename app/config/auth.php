@@ -15,8 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'eloquent',
-
+	'driver'   => 'eloquent',
 	/*
 	|--------------------------------------------------------------------------
 	| Authentication Model
@@ -28,8 +27,7 @@ return array(
 	|
 	*/
 
-	'model' => 'User',
-
+	'model'    => 'User',
 	/*
 	|--------------------------------------------------------------------------
 	| Authentication Table
@@ -41,8 +39,9 @@ return array(
 	|
 	*/
 
-	'table' => 'users',
-
+	'table'    => 'users',
+	'username' => 'username',
+	'password' => 'password_hash',
 	/*
 	|--------------------------------------------------------------------------
 	| Password Reminder Settings
@@ -60,10 +59,8 @@ return array(
 
 	'reminder' => array(
 
-		'email' => 'emails.auth.reminder',
-
-		'table' => 'password_reminders',
-
+		'email'  => 'emails.auth.reminder',
+		'table'  => 'password_reminders',
 		'expire' => 60,
 
 	),
