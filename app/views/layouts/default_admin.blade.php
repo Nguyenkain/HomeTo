@@ -93,10 +93,10 @@
                 <i class="fa fa-bars"></i> Menu
             </button>
             <div class="navbar-brand">
-                <a href="{{ URL::to('admin') }}">
-                    <img style="position: relative;  top: -25px;" src="{{asset('assets/site/img/logo.png')}}"
-                         data-1x="{{asset('assets/site/img/logo.png')}}"
-                         data-2x="{{asset('assets/site/img/logo.png')}}" class="hisrc img-responsive"
+                <a href="http://hometo.vn">
+                    <img style="position: relative;  top: -25px;" src="http://placehold.it/100x30"
+                         data-1x="http://placehold.it/100x30"
+                         data-2x="http://placehold.it/100x30" class="hisrc img-responsive"
                          alt="">
                 </a>
             </div>

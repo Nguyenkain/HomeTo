@@ -29,7 +29,9 @@
                         </h4>
                     </div>
                     <div class="portlet-widgets">
-                        &nbsp;
+                        <a href="{{URL::route('account.create')}}">
+                            <button class="btn btn-white btn-xs"><i class="fa fa-plus-circle"></i> Đăng ký</button>
+                        </a>
                     </div>
                     <div class="clearfix"></div>
                 </div>
