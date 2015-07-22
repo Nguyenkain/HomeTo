@@ -50,10 +50,10 @@
                             <br>
                             <input type="submit" class="btn btn-lg btn-green btn-block" value="Đăng Nhập">
                             <hr>
-                            <a class="btn btn-block btn-social btn-facebook">
+                            <a href="{{URL::route('login-fb')}}" class="btn btn-block btn-social btn-facebook">
                                 <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook
                             </a>
-                            <a class="btn btn-block btn-social btn-google-plus">
+                            <a href="{{URL::route('login-gg')}}" class="btn btn-block btn-social btn-google-plus">
                                 <i class="fa fa-google-plus"></i> Đăng nhập bằng Google
                             </a>
                             <!-- CSRF Token -->

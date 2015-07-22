@@ -47,7 +47,7 @@ class AccountController extends AuthorizedController {
 	{
 		// Declare the rules for the form validation.
 		$rules = array(
-			'full_name'              => 'required|between:2,40',
+			'full_name'             => 'required|between:2,40',
 			'email'                 => 'required|email|unique:users',
 			'password'              => 'required|min:4|confirmed',
 			'password_confirmation' => 'required'
@@ -60,19 +60,19 @@ class AccountController extends AuthorizedController {
 		if ( $validator->passes() ) {
 			// Create the user.
 			$user              = new User;
-			$user->full_name    = Input::get( 'full_name' );
+			$user->full_name   = Input::get( 'full_name' );
 			$user->email       = Input::get( 'email' );
-			$user->password    = md5( Input::get( 'password' ) );
+			$user->password    = Input::get( 'password' );
 			$user->phone       = Input::get( 'phone' );
 			$user->os          = 3;
 			$user->cover_image = 'https://lh6.googleusercontent.com/-3WJKEy6n7OQ/U09V1Pwz0rI/AAAAAAAAAls/EBoDipK8as4/w909-h455-no/5.jpg';
-			//$user->avatar      = 'http://timtro.vn/images/upload/no_avata_facebook.png';
-			//$user->token      = md5(uniqid(mt_rand(), true));
-			$user->last_seen = time();
+			$user->image       = 'http://timtro.vn/images/upload/no_avata_facebook.png';
+			$user->api_key     = md5( uniqid( mt_rand(), true ) );
+			$user->last_seen   = time();
 
 			//Get username
-			$splits = explode("@", Input::get( 'email' ));
-			$user->username = sprintf("%s%s", $splits[0], '@hometo');
+			$splits         = explode( "@", Input::get( 'email' ) );
+			$user->username = sprintf( "%s%s", $splits[0], '@hometo' );
 
 			$user->save();
 

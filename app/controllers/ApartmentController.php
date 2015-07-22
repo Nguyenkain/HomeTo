@@ -4,6 +4,8 @@ class ApartmentController extends \BaseController {
 
 	public function __construct()
 	{
+		$this->beforeFilter( 'auth' );
+
 		parent::__construct();
 
 	}
@@ -17,7 +19,7 @@ class ApartmentController extends \BaseController {
 		$apartment = new ListApartment();
 
 		//Hard code
-		$apartment->username = "Test";
+		$apartment->username = Auth::user()->username;
 
 		// Get all district
 		$district = ListDistrict::lists( 'name_district', 'id_district' );
@@ -29,7 +31,7 @@ class ApartmentController extends \BaseController {
 		$projects = ListProject::lists( 'name', 'ID' );
 
 		//Get project
-		$project_id = Input::get( 'project' );
+		$project_id         = Input::get( 'project' );
 		$apartment->project = $project_id;
 
 		// Get all furniture

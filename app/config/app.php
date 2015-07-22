@@ -13,8 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => false,
-
+	'debug'           => false,
 	/*
 	|--------------------------------------------------------------------------
 	| Application URL
@@ -26,8 +25,7 @@ return array(
 	|
 	*/
 
-	'url' => 'http://localhost',
-
+	'url'             => 'http://localhost',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Timezone
@@ -39,8 +37,7 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
-
+	'timezone'        => 'UTC',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Locale Configuration
@@ -52,8 +49,7 @@ return array(
 	|
 	*/
 
-	'locale' => 'en',
-
+	'locale'          => 'en',
 	/*
 	|--------------------------------------------------------------------------
 	| Application Fallback Locale
@@ -66,7 +62,6 @@ return array(
 	*/
 
 	'fallback_locale' => 'en',
-
 	/*
 	|--------------------------------------------------------------------------
 	| Encryption Key
@@ -78,10 +73,8 @@ return array(
 	|
 	*/
 
-	'key' => 'qoUGXjW9TjOlGtQqnESXPIVNdWFkaaQG',
-
-	'cipher' => MCRYPT_RIJNDAEL_128,
-
+	'key'             => 'qoUGXjW9TjOlGtQqnESXPIVNdWFkaaQG',
+	'cipher'          => MCRYPT_RIJNDAEL_128,
 	/*
 	|--------------------------------------------------------------------------
 	| Autoloaded Service Providers
@@ -93,7 +86,7 @@ return array(
 	|
 	*/
 
-	'providers' => array(
+	'providers'       => array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
@@ -121,11 +114,10 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-
 		'HieuLe\Active\ActiveServiceProvider', //Active class
+		'Artdarek\OAuth\OAuthServiceProvider', //Oauth
 
 	),
-
 	/*
 	|--------------------------------------------------------------------------
 	| Service Provider Manifest
@@ -137,8 +129,7 @@ return array(
 	|
 	*/
 
-	'manifest' => storage_path().'/meta',
-
+	'manifest'        => storage_path() . '/meta',
 	/*
 	|--------------------------------------------------------------------------
 	| Class Aliases
@@ -150,7 +141,7 @@ return array(
 	|
 	*/
 
-	'aliases' => array(
+	'aliases'         => array(
 
 		'App'               => 'Illuminate\Support\Facades\App',
 		'Artisan'           => 'Illuminate\Support\Facades\Artisan',
@@ -191,6 +182,7 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 		'Active'            => 'HieuLe\Active\Facades\Active', //Active class
+		'OAuth'             => 'Artdarek\OAuth\Facade\OAuth', //Oauth
 	),
 
 );

@@ -38,4 +38,6 @@ Route::post( 'register', [ 'as' => 'account.store', 'uses' => 'AccountController
 // Session
 Route::get( 'login', [ 'as' => 'login', 'uses' => 'SessionController@create' ] );
 Route::get( 'logout', 'SessionController@destroy' );
+Route::get( 'facebook-login', [ 'as' => 'login-fb', 'uses' => 'SessionController@loginWithFacebook' ] );
+Route::get( 'google-login', [ 'as' => 'login-gg', 'uses' => 'SessionController@loginWithGoogle' ] );
 Route::resource( 'session', 'SessionController', [ 'only' => [ 'create', 'store', 'destroy' ] ] );

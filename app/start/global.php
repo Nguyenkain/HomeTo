@@ -67,6 +67,12 @@ App::down(function()
 	return Response::make("Be right back!", 503);
 });
 
+Auth::extend('customAuth', function($app) {
+
+	return $provider = new \Hometo\Auth\AuthService();
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Require The Filters File
