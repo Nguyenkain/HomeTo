@@ -1,48 +1,73 @@
-@extends('layouts.default')
-
-{{-- Page title --}}
-@section('title', 'Login')
-
-{{-- Page styles --}}
-@section('styles')
-@stop
-
-{{-- Page content --}}
-@section('content')
+<link href="{{asset('assets/css/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic'
+      rel="stylesheet" type="text/css">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+      rel="stylesheet" type="text/css">
+<link href="{{asset('assets/icons/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
+<!-- THEME STYLES - Include these on every page. -->
+<link rel="stylesheet" href="{{asset('assets/css/colorbox.css')}}">
+<link href="{{asset('assets/css/plugins/bootstrap-social/bootstrap-social.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
+<link href="{{asset('assets/css/plugins.css')}}" rel="stylesheet">
+<style>
+    .error {
+        color: red;
+        margin-top: 5px;
+    }
+</style>
+<body class="login">
 <div class="container">
-    <div class="page-header">
-        <h1>Log in</h1>
-    </div>
-    
-    {{ Form::open(['route' => 'session.store']) }}
-
-        <!-- email -->
-        <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
-            {{ Form::label('email', 'Email:') }}
-            {{ Form::text('email', null, ['class' => 'form-control', 'required' => 'required']) }}
-            {{ $errors->first('email', '<span class="help-block error">:message</span>') }}
-        </div>
-
-        <!-- password -->
-        <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
-            {{ Form::label('password', 'Password:') }}
-            {{ Form::password('password', ['class' => 'form-control', 'required' => 'required']) }}
-            {{ $errors->first('password', '<span class="help-block error">:message</span>') }}
-        </div>
-        
-        <div class="form-group">
-            {{ Form::submit('Login', ['class' => 'btn btn-primary']) }}
-        </div>
-
-        @if (Session::has('error'))
-            <div class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span>
-                {{ Session::get('error') }}
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-banner text-center">
+                <h1><i class="fa fa-gears"></i> Đăng Nhập</h1>
             </div>
-        @endif
+            <div class="portlet portlet-green">
+                <div class="portlet-heading login-heading">
+                    <div class="portlet-title">
+                        <h4><strong>Đăng Nhập</strong>
+                        </h4>
+                    </div>
+                    <div class="portlet-widgets">
+                        &nbsp;
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="portlet-body">
+                    @if(Session::has('error'))
+                        <div class="error">{{Session::get('error')}}</div>
+                    @endif
+                    <form method="post" action="{{URL::route('session.store')}}" role="form">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Email" name="email" type="text"
+                                       autofocus="" value="{{Input::old('email')}}">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Mật Khẩu" name="password" type="password"
+                                       value="">
+                            </div>
+                            <br>
+                            <input type="submit" class="btn btn-lg btn-green btn-block" value="Đăng Nhập">
+                            <hr>
+                            <a class="btn btn-block btn-social btn-facebook">
+                                <i class="fa fa-facebook"></i> Đăng nhập bằng Facebook
+                            </a>
+                            <a class="btn btn-block btn-social btn-google-plus">
+                                <i class="fa fa-google-plus"></i> Đăng nhập bằng Google
+                            </a>
+                            <!-- CSRF Token -->
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+                        </fieldset>
+                        <br>
 
-    {{ Form::close() }}
+                        <p class="small">
+
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-@stop
+</body>

@@ -55,6 +55,7 @@ return array(
 	'contact_info'           => 'Thông tin liên hệ',
 	'username'               => 'Tên người đăng',
 	'email'                  => 'Email',
-	'phone'                  => 'Số điện thoại
-	',
+	'phone'                  => 'Số điện thoại',
+	//Sign in
+	'sign_up'                => 'Đăng ký',
 );
